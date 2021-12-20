@@ -202,5 +202,23 @@ function playerStats(name) {
 
 //Returns rebounds of player with biggest shoe size
 function bigShoeRebound () {
+    let shoeSize = 0;
+    let rebounds = 0;
+
+    const home = gameObject().home.players;
+    for (player in home) {
+        if (home[player].shoe > shoeSize) {
+            shoeSize = home[player].shoe;
+            rebounds = home[player].rebounds;
+        }
+    }
     
+    const away = gameObject().away.players;
+    for (player in away) {
+        if (away[player].shoe > shoeSize) {
+            shoeSize = away[player].shoe;
+            rebounds = away[player].rebounds;
+        }
+    }
+    return rebounds;
 }
